@@ -1,4 +1,4 @@
-# AI Final Project :
+# AI Final Project : Judulnya apa wak
 
 ## Anggota Kelompok
 * **Member 1:** Tsaqif Jalaluddin Ahmad - NIM 
