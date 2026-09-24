@@ -1,9 +1,9 @@
 # AI Final Project :
 
 ## Anggota Kelompok
-* **Member 1:** Nama Lengkap - NIM 
-* **Member 2:** Nama Lengkap - NIM 
-* **Member 3:** Nama Lengkap - NIM
+* **Member 1:** Tsaqif Jalaluddin Ahmad - NIM 
+* **Member 2:** Raalfhi Yholano - NIM 
+* **Member 3:** Satriyo Ramadhan - 24/540384/TK/59958
 
 ## Algoritma AI yang Diterapkan
 1. **Uninformed Search (BFS):** Digunakan oleh agen agen saat mode *PATROL* untuk mencari rute terpendek antar-node patroli.
