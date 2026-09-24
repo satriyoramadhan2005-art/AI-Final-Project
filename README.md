@@ -6,7 +6,7 @@
 * **Member 3:** Satriyo Ramadhan - 24/540384/TK/59958
 
 ## Algoritma AI yang Diterapkan
-1. **Uninformed Search (BFS):** Digunakan oleh agen agen saat mode *PATROL* untuk mencari rute terpendek antar-node patroli.
+1. **Uninformed Search (BFS):** Digunakan oleh agen saat mode *PATROL* untuk mencari rute terpendek antar-node patroli.
 2. **Bayesian Reasoning / Naive Bayes Update:** Digunakan saat mode *INVESTIGATE* untuk memperbarui peta probabilitas (*belief map*) keberadaan pemain berdasarkan petunjuk suara (*noisy clues*).
 
 ## Prasyarat & Instalasi
