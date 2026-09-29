@@ -1,8 +1,8 @@
 # AI Final Project : Judulnya apa wak
 
 ## Anggota Kelompok
-* **Member 1:** Tsaqif Jalaluddin Ahmad - NIM 
-* **Member 2:** Raalfhi Yholano - NIM 
+* **Member 1:** Tsaqif Jalaluddin Ahmad - 24/537665/TK/59611
+* **Member 2:** Raalfhi Yholano - 24/534528/TK/59251
 * **Member 3:** Satriyo Ramadhan - 24/540384/TK/59958
 
 ## Algoritma AI yang Diterapkan

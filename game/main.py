@@ -121,7 +121,7 @@ COLORS = {
 STATE_COLOR = {"PATROL": (90, 200, 120), "INVESTIGATE": (255, 190, 60), "HUNT": (255, 70, 70)}
 
 class Game:
-    HUD_W = 330
+    HUD_W = 320
     WIN_W, WIN_H = World.MAP_W * World.CELL_SIZE + HUD_W, World.MAP_H * World.CELL_SIZE
     def __init__(self):
         pygame.init()
