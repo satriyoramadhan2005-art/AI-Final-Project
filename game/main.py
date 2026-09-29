@@ -127,8 +127,8 @@ class Game:
         pygame.init()
         self.screen = pygame.display.set_mode((self.WIN_W, self.WIN_H))
         pygame.display.set_caption("Stalker AI - Bayesian Alien")
-        self.font = pygame.font.Font(None, 19)
-        self.big = pygame.font.Font(None, 56)
+        self.font = pygame.font.Font(None, 20)
+        self.big = pygame.font.Font(None, 50)
         self.clock = pygame.time.Clock()
         self.show_belief = True
         self.sim = Simulation()
@@ -271,7 +271,7 @@ class Game:
         self.text(a.state, x0 + 100, y, STATE_COLOR[a.state]); y += 20
         mode = "IDLE (silent)"
         if p.noise_interlude(s.time):
-            mode = f"{'RUN' if p.last_run else 'WALK'} (noise r={p.set_noise_radius})"
+            mode = f"{'RUN' if p.last_run else 'WALK'} (noise r = {p.set_noise_radius()})"
         self.text("Player:", x0, y, COLORS["dim"]); self.text(mode, x0 + 100, y); y += 20
         peak_c = max(a.belief, key=a.belief.get)
         self.text("Belief peak:", x0, y, COLORS["dim"])
