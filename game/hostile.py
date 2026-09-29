@@ -7,15 +7,26 @@ from player import Player
 
 config = {
     # Director
-    'sigma': {'walk': 5.5, 'run': 4.0},
-    'cooldown': {'walk': 5.0, 'run': 3.0},
+    'sigma': {'walk': 5.5, 'run': 4.0, 'idle': 1.5},
+    'cooldown': {'walk': 12.0, 'run': 5.0, 'idle': 15.0},
+    'idle_threshold': 30.0,
 
     # Alien
-    'patrol_nodes': [(5, 2), (17, 2), (12, 7), (17, 9), (16, 17), (11, 13), (4, 17), (3, 9)],
+    'patrol_nodes': [
+        (6, 5),
+        (15, 1),
+        (23, 2),
+        (27, 7),
+        (23, 15),
+        (28, 20),
+        (13, 15),
+        (5, 11),
+        (12, 10),
+    ],
     'vision': 7,
     'sight_timeout': 2.5,
-    'investigate_timeout': 5.0,
-    'step_time': {'PATROL': 0.35, 'INVESTIGATE': 0.25, 'HUNT': 0.125},
+    'investigate_timeout': 8.0,
+    'step_time': {'PATROL': 0.36, 'INVESTIGATE': 0.26, 'HUNT': 0.14},
     # Bayesian model milik Alien
     'diffuse_rate': 0.30,
     'outlier': 0.02,
@@ -28,10 +39,12 @@ Clue = namedtuple("Clue", "pos sigma source time")
 class Director:
     DIRECTOR_SIGMA = config['sigma']
     DIRECTOR_COOLDOWN = config['cooldown']
+    IDLE_THRESHOLD = config['idle_threshold']
 
     def __init__(self, world:World):
         self.world = world
         self.cooldown = 0.0
+        self.idle_cd = 0.0
 
     def leak_position(self, true_pos:tuple, sigma:float):
 
@@ -44,6 +57,21 @@ class Director:
                 return (x, y)
 
         return true_pos
+
+    def punish_idle(self, dt:float, player:Player, time_now:float):
+        """
+        Kalau player diam total selama IDLE_THRESHOLD detik, Director langsung
+        bocorkan posisi yang jauh lebih akurat ke alien. Cooldown sendiri (idle_cd)
+        biar tidak spam tiap frame kalau player terus diam lebih lama dari threshold.
+        """
+        self.idle_cd = max(0.0, self.idle_cd - dt)
+        idle_for = player.idle_duration(time_now)
+
+        if idle_for < self.IDLE_THRESHOLD or self.idle_cd > 0:
+            return None
+        
+        self.idle_cd = self.DIRECTOR_COOLDOWN['idle']
+        return Clue(self.leak_position(player.pos, self.DIRECTOR_SIGMA['idle']), self.DIRECTOR_SIGMA['idle'], "impatience", time_now)
 
     def update(self, dt:float, player:Player, time_now:float):
 

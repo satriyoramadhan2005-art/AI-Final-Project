@@ -5,14 +5,13 @@ from collections import deque
 
 config = {
     # Generator
-    'gen_rad': 20,
-    'gen_cd': 10.0,
+    'gen_rad': 15,
+    'gen_cd': 18.0,
 
     # World
-    'cell_size': 32,
+    'cell_size': 42,
     'move_dir': [(1, 0), (-1, 0), (0, 1), (0, -1)],
     'map': [ 
-        # -- Bentuknya harus kotak! --
         "##############################",
         "#P..........#........o.....o.#", # tiap simbol mewakili satu tile world
         "#...N#......#............oN..#", # N: noise generator (selanjutnya disebut 'generator' aja)
@@ -21,15 +20,15 @@ config = {
         "##..............oo...........#", 
         "###....###.######...##########",
         "####...........#.............#",
-        "#####....N.....#..oo..##.##..#",
-        "#####..........#.........#N..#",
-        "####.....###.....###...#.....#",
-        "###......#.........o..##..o..#",
-        "##...N......oo.......###.....#",
-        "#.................#..####....#",
+        "#####....N.....#..oo.....N...#",
+        "#####..........#.............#",
+        "####.....###.....###...##....#",
+        "###......#.........o..###....#",
+        "##...N......oo........###....#",
+        "#.................#..........#",
         "#......#####.####.############",
-        "#..o...........#.....A#...#.E#",
-        "#..oo....oo....#..N...#.oo#..#",
+        "#..o...........#....A.....#.E#",
+        "#..oo....oo....#..N.....oo#..#",
         "#..o..o........#........o....#",
         "#........N........o...#......#",
         "#..######...######..#######..#",
@@ -64,14 +63,14 @@ class Generator:
     def __init__(self, pos:tuple):
         self.pos = pos
         self.cooldown = 0.0
-        self.malfunc_timer = random.uniform(8.0, 13.0)
+        self.malfunc_timer = random.uniform(35.0, 60.0)
 
     def ready(self):
         return self.cooldown <= 0
 
     def trigger(self):  # kalau ditrigger manual
         self.cooldown = self.GEN_COOLDOWN
-        self.malfunc_timer = random.uniform(8.0, 13.0)
+        self.malfunc_timer = random.uniform(45.0, 80.0)
 
     def tick_update(self, dt:float):
         """

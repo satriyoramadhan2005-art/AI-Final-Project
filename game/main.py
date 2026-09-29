@@ -10,7 +10,7 @@ Two agents cooperate against the player:
   * ALIEN     - blind to the player's real position. It keeps a belief map
                 P(player is in cell c) and updates it with Bayes' rule:
 
-                    posterior(c)  ∝  likelihood(observation | c) * prior(c)
+                    posterior(tile)  ∝  likelihood(clue | tile) * prior(tile)
 
 Alien state machine
   PATROL       walk between fixed nodes (BFS shortest paths).
@@ -91,6 +91,12 @@ class Simulation:
                 self.emit_noise(g.pos, Generator.GEN_RADIUS, "generator")
 
         clue = self.director.update(dt, self.player, self.time)
+        idle_clue = self.director.punish_idle(dt, self.player, self.time)
+
+        if idle_clue:
+            self.log("Idling too long aren't you?")
+            self.alien.hear_clue(idle_clue, self.time)
+
         if clue:
             self.alien.hear_clue(clue, self.time)
 

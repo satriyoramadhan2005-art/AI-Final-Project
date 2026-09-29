@@ -48,6 +48,12 @@ class Player:
         """
         return (time_now - self.last_move) < self.NOISE_SPACING
 
+    def idle_duration(self, time_now:float):
+        """
+        Detik sejak terakhir kali player benar-benar bergerak (dipakai buat idle-punishment).
+        """
+        return time_now - max(self.last_move, 0.0)
+
     def tick_update(self, dt:float, direction:tuple, running:bool, world:World, time_now:float):
         """
         Returns True kalau player berhasil bergerak di frame/tick saat ini
