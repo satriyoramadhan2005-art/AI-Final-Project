@@ -14,7 +14,7 @@ config = {
     'patrol_nodes': [(5, 2), (17, 2), (12, 7), (17, 9), (16, 17), (11, 13), (4, 17), (3, 9)],
     'vision': 7,
     'sight_timeout': 2.5,
-    'investigate_timeout': 10.0,
+    'investigate_timeout': 5.0,
     'step_time': {'PATROL': 0.35, 'INVESTIGATE': 0.25, 'HUNT': 0.125},
     # Bayesian model milik Alien
     'diffuse_rate': 0.30,
