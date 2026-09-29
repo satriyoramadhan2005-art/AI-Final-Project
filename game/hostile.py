@@ -153,9 +153,7 @@ class Alien:
         berkurang dan belief tile walkable di sekitarnya menjadi lebih tinggi.
 
         Referensi dan Sumber Inspirasi:
-        > 1. Deepia, (2025, May 27). Diffusion Models: DDPM | Generative AI Animated. [Video]. https://www.youtube.com/watch?v=EhndHhIvWWw
-        > 
-        > 2. Bantuan claude untuk formula implementasi sederhana khusus case ini
+        Deepia, (2025, May 27). Diffusion Models: DDPM | Generative AI Animated. [Video]. https://www.youtube.com/watch?v=EhndHhIvWWw
         """
         new = {tile: belief * (1 - rate) for tile, belief in self.belief.items()} # kurangi setiap tile menjadi rasio (1 - rate)
         for tile, belief in self.belief.items():
