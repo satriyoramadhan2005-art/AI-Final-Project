@@ -143,7 +143,9 @@ class Alien:
 
     def diffuse(self, rate:float = DIFFUSE_RATE):
         """
-        Model sederhana yang memprediksi gerakan player berdasarkan clue. 
+        Model sederhana yang memprediksi gerakan player berdasarkan clue. Hanya konsep pembantu bayesian reasoning
+        dan bukan implementasi hasil materi kuliah.
+
         Pemanggilan method ini akan trigger penyebaran nilai belief setiap tile sebesar DIFFUSE_RATE%
         ke tetangganya yang walkable sebagai prediksi sederhana kira-kira player ke mana. 
         
@@ -172,7 +174,7 @@ class Alien:
     def bayes_clue(self, pos:tuple, sigma:float):
         """
         Taruh clue di titik ini dan hitung persebaran pengaruhnya terhadap tile di sekitar
-        sampai seluruh map
+        sampai seluruh map. Formulasi ini sesuai aturan bayes:
 
         > `P(T | z)  ∝  P(z | T) * P(T)`
             
