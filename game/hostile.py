@@ -26,7 +26,7 @@ config = {
     'vision': 7,
     'sight_timeout': 2.5,
     'investigate_timeout': 8.0,
-    'step_time': {'PATROL': 0.36, 'INVESTIGATE': 0.26, 'HUNT': 0.14},
+    'step_time': {'PATROL': 0.33, 'INVESTIGATE': 0.25, 'HUNT': 0.16},
     # Bayesian model milik Alien
     'diffuse_rate': 0.30,
     'outlier': 0.02,
