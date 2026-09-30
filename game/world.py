@@ -97,8 +97,8 @@ class World:
     bagaimana interaksinya terhadap player. Implementasi Breadth First Search (BFS) ada  di method class ini
     (2 method akhir: bfs_path dan bfs_dist) sebagai pembentuk path jalan agent alien.
 
-    Sisa method mengatur bagaimana alien dapat melihat playernya dan sistem + mekanisme tile (e.g., *walkable*, *is_wall/menutup line of sight*,
-    dan *boundary check*)
+    Sisa method mengatur bagaimana alien dapat melihat playernya dan sistem + mekanisme tile
+    (e.g., *walkable*, *is_wall/menutup line of sight*, dan *boundary check*)
     
     @Attributes:
         **NAMA** | **SATUAN**. **DESKRIPSI**
