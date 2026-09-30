@@ -71,7 +71,7 @@ Noise hanya diberikan oleh `Director` atau 'dihasilkan' jika `Player` bergerak. 
 > ## Timer Malfungsi
 > Setiap generator awalnya memiliki waktu acak **35-60 detik** (secara [**uniform**](https://brilliant.org/wiki/uniform-probability/)) saat game dimulai
 > 
-> Jika timer tersebut **mencapai 0** dan *cooldown* generator juga sudah selesai, maka generator akan malfungsi; yaitu membuat noise secara otomatis, tidak bisa digunakan selama 18 detik *cooldown*, dan mendapat timer malfungsi baru selama 45-80 detik**
+> Jika timer tersebut **mencapai 0** dan *cooldown* generator juga sudah selesai, maka generator akan malfungsi; yaitu membuat noise secara otomatis, tidak bisa digunakan selama 18 detik *cooldown*, dan mendapat timer malfungsi baru selama **45-80 detik**
 >
 > Setiap kali generator diaktifkan secara manual oleh Player, timer malfungsi diacak kembali menjadi 45-80 detik
 
@@ -113,6 +113,11 @@ Noise hanya diberikan oleh `Director` atau 'dihasilkan' jika `Player` bergerak. 
 
     Model ini hanya digunakan saat `Alien` berada di mode `Hunt` atau `Investigate` dan tampak pada ilustrasi berupa perubahan gradasi warna merah tile *walkable* menuju beberapa area yang mungkin jadi tujuan player. 
 
+4. **Negative Evidence**
+
+    Tile yang sudah dilihat `Alien` tapi tidak ada `Player`-nya akan dievaluasi ulang untuk mengurangi probabilitas hadirnya `Player` di sana secara drastis. 
+    
+    Tampak pada gif ilustrasi di atas; `Alien` seperti menyapu area tile berwarna merah di sekitarnya menjadi netral kembali.
 
 ## Tim Proyek | Nama Kelompok B A K E K O K
 * Tsaqif Jalaluddin Ahmad | [**dhornii**](https://github.com/dhornii) - 24/537665/TK/59611
